@@ -1,7 +1,10 @@
+
+// Product Data
+
 const products = [
   {
     "id": "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-    "image": "C:/Users/doguy/Desktop/Youtube Front-End/E-Commerce-Luna/images/product-images/a1.png",
+    "image": "images/product-images/a1.png",
     "name": "The Dawud Prophet Sculpture 300x300",
     "rating": {
       "stars": 4.5,
@@ -16,7 +19,7 @@ const products = [
   },
   {
     "id": "15b6fc6f-327a-4ec4-896f-486349e85a3d",
-    "image": "C:/Users/doguy/Desktop/Youtube Front-End/E-Commerce-Luna/images/product-images/a2.png",
+    "image": "images/product-images/a2.png",
     "name": "The Cyprus Zenon Sculpture 150x150",
     "rating": {
       "stars": 4.5,
@@ -31,7 +34,7 @@ const products = [
   },
   {
     "id": "83d4ca15-0f35-48f5-b7a3-1ea210004f2e",
-    "image": "C:/Users/doguy/Desktop/Youtube Front-End/E-Commerce-Luna/images/product-images/a3.jpg",
+    "image": "images/product-images/a3.jpg",
     "name": "The Platon Sculpture 200x200",
     "rating": {
       "stars": 4.5,
@@ -45,7 +48,7 @@ const products = [
   },
   {
     "id": "3ebe75dc-64d2-4137-8860-1f5a963e534b",
-    "image": "C:/Users/doguy/Desktop/Youtube Front-End/E-Commerce-Luna/images/product-images/a4.png",
+    "image": "images/product-images/a4.png",
     "name": "Platon - Der Staat Book",
     "rating": {
       "stars": 4,
@@ -59,14 +62,22 @@ const products = [
     ]
   }
 ];
+
+
 console.log("Script is running...");
 
+
+/* 
+1-) Create a loop for each product (product.forEach) 
+2-) if displayed image is a3 then apply "fixed_size" class
+3-) if displayed image is a4 then apply "fixed_size_a4" class
+4-) Create a product code that appears inside each product-grid
+*/
+
 let productHtml = '';
-
 products.forEach((product) => {
-  console.log("Image Path:", product.image);
 
-    // Ekstra sınıf eklemek için bir koşul kontrolü
+
     let extraClass = "";
     if (product.image.includes("a3.jpg")) {
       extraClass = "fixed_size";
@@ -74,8 +85,13 @@ products.forEach((product) => {
     else if (product.image.includes("a4.png")) {
       extraClass = "fixed_size_a4";
     }
-  productHtml +=  `
-      
+
+      // Generate the whole code inside js-product-grid
+      /*
+      We used data attribute to store product name and product id, the main objective to use data attribute is to
+      take the data immediately when loop is activated 
+      */ 
+    productHtml +=  `      
       <div class="product-container">
       <img src="${product.image}" class="product-images image-2 ${extraClass}">
       <p class="product-name">${product.name}</p>
@@ -99,9 +115,51 @@ products.forEach((product) => {
           <option value = "9">9</option>
           <option value = "10">10</option>
       </select>
-      <button class = "add-to-cart-options button">Add to Cart</button>
+      <button class = "add-to-cart-options button js-add-to-cart-button"
+      data-product-name = "${product.name}"
+      data-product-id = "${product.id}" 
+      >Add to Cart</button>
       </div>`;
+    });
+    document.querySelector('.js-products-grid').innerHTML = productHtml;
 
+
+    /*
+    Create a class named js-add-to-cart-button
+    Loop it for a function that is used to create an event listener 
+    and storing the product Name and product Id
+    */ 
+    document.querySelectorAll('.js-add-to-cart-button').forEach((button) =>{
+      button.addEventListener('click', () => {
+        const productName = button.dataset.productName;
+        const productId = button.dataset.productId;
+        
+
+        // Create a foreach and function that we can use to rechange the quantity of the products
+        let matchingItem;
+        cart.forEach((item) => {
+          if(productName === item.productName){
+            matchingItem = item;
+          }
+        });
+        if (matchingItem) {
+          matchingItem.quantity += 1,
+          productId
+        } else {
+          cart.push({
+            productName: productName,
+            quantity: 1,
+            productId
+          });
+        }
+        let cartQuantity = 0;
+        cart.forEach((item) => {
+          cartQuantity += item.quantity;
+
+        })
+        console.log(cart)
+        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
+
+      });
     });
 
-    document.querySelector('.js-products-grid').innerHTML = productHtml;
