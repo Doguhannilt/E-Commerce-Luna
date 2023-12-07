@@ -1,6 +1,1 @@
-const cart = [
-
-    
-
-
-];
+export let cart = [];
