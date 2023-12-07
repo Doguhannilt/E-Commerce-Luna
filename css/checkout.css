@@ -1,0 +1,172 @@
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.grid-checkout{
+    padding-top: 70px;
+    padding-left: 200px;
+    display: grid;
+    grid-template-columns: 500px 500px;
+    column-gap: 100px;
+    height: 300px;
+    
+}
+.padding-cart{
+    margin-top: 10px;
+}
+.review-your-order{
+    padding: 0px;
+    margin: 0px;
+    
+    display: block;
+}
+
+.delivery-date{
+    color:green;
+    font-size: 20px;
+    padding-left: 30px;
+    padding-top: 20px;
+    margin: 0px;
+}
+
+
+
+.first-grid{
+    display: grid;
+    grid-template-rows: 20px 1fr;
+    padding:0px;
+    margin: 0px;
+}
+.checkout-image{
+    width: 175px;
+    padding-left: 10px;
+}
+.checkout-product-text{
+    color:black;
+    padding-left: 200px;
+    font-size: 20px;
+}
+
+
+.text-grid-second{
+    display:grid;
+    grid-template-rows: 50px 30px 1fr;
+}
+.checkout-salary{
+    color:red;
+    font-size: 20px;
+    padding-left: 200px;
+}
+.checkout-quantity{
+    color:black;
+    font-size: 20px;
+    padding-left: 200px;
+    display: block;
+}
+
+.third-grid{
+    display: grid;
+    grid-template-columns: 40px 40px 10px;
+}
+.Update{
+    padding-left: 270px;
+    color:black;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.Delete{
+    padding-left: 315px;
+    color:black;
+    font-size: 20px;
+    cursor: pointer;
+}
+a{
+    color:white;
+}
+
+.order-summary{
+    font-size: 20px;
+    padding-left: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;    
+}
+
+.payment-items-grid{
+    display:grid;
+    grid-template-columns: 300px 50px;
+    grid-template-rows: 100px 1fr;
+    margin-top: 0px;
+    padding-left: 70px;
+    font-size: 20px;
+}
+
+.payment-shipping-grid{
+    display:grid;
+    grid-template-columns: 300px 50px;
+    margin-top: 0px;
+    padding-top:0px;
+    padding-left: 70px;
+    font-size: 20px;
+}
+
+.payment{
+    border-radius: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 0px;
+}
+
+.row{
+    display:grid;
+    grid-template-rows: 50px 50px;
+}
+
+.total-order{
+    color:orange;
+    font-size: 20px;
+    padding-left: 150px;
+}
+
+
+
+/* CSS */
+.button-89 {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
+  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+    margin-left:175px;
+    margin-top: 10px;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.button-89:active {
+  background: var(--color);
+  color: #fff;
+}

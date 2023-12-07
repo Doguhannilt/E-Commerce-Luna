@@ -92,13 +92,14 @@
     width:40px;
     margin-left: 200px;
     margin-top:18px;
-    
+    cursor: pointer;
 }
 
 .cart-quantity{
     margin-left:124px;
     color:white;
     padding-top:4px;
+    cursor: pointer;
 }
 
 .cart-text{
